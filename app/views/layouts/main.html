@@ -4,3 +4,45 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "index.html",
+  serviceName: "Service name",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "index.html",
+      text: "Home",
+      active: true
+    },
+    {
+        href: "#1",
+        text: "Project summary"
+    },
+    {
+        href: "/properties/list.html",
+        text: "Properties"
+    },
+    {
+      href: "#2",
+      text: "Monthly reports"
+    },
+    {
+      href: "#3",
+      text: "Project performance"
+    }
+  ]
+}) }}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+<div class="govuk-width-container">
+    <div class="govuk-grid-row govuk-!-padding-right-3 govuk-!-padding-left-3">
+        {{ govukPhaseBanner({
+        tag: {
+            text: "Alpha"
+        },
+        html: 'This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback by email</a>.'
+        }) }}
+    </div>
+</div>
+{% endblock %}
