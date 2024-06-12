@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Add properties – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,32 +16,30 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Heading or question goes here
-      </h1>
+      <form class='form' action='new-individual-address' method='post'>
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-      <form class='form' action='/path/of/next/page' method='post'>
-        <div class='govuk-form-group'>
-          <fieldset class='govuk-fieldset'>
-            <legend class='govuk-fieldset__legend'>
-              Add properties:
-            </legend>
-            <div class='govuk-radios' data-module='govuk-radios'>
-              <div class='govuk-radios__item'>
-                <input class='govuk-radios__input' id='addProperties' name='addProperties' type='radio' value='individual'>
-                <label class='govuk-label govuk-radios__label' for='addProperties'>
-                  New individual property
-                </label>
-              </div>
-              <div class='govuk-radios__item'>
-                <input class='govuk-radios__input' id='addProperties-2' name='addProperties' type='radio' value='multiple'>
-                <label class='govuk-label govuk-radios__label' for='addProperties-2'>
-                  Upload multiple new properties
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
+          {{ govukRadios({
+            name: "addProperties",
+            fieldset: {
+              legend: {
+                text: "How do you want to add properties?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "individual",
+                text: "One property at a time"
+              },
+              {
+                value: "bulk",
+                text: "Multiple properties at once"
+              }
+            ]
+          }) }}
+
         <button type='submit' class='govuk-button' data-module='govuk-button'>
           Continue
         </button>

@@ -1,0 +1,362 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add property details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<!-- COMPONENTS INCLUDED -->
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<!-- CONTENT START -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Property details
+      </h1>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body-l"><strong>Address:</strong> 10 New Street, Nottingham, AB1 2YZ</p>
+        <p class="govuk-body-s"><strong>UPRN:</strong> 123456789</p>
+        <p class="govuk-body-s"><strong>Date added:</strong> 10 October 2024</p>
+      </div>
+
+      <form class="form" action="list.html" method="post">
+        <!-- SET STATUS -->
+        {{ govukSelect({
+          id: "status",
+          name: "status",
+          label: {
+            text: "Property status:"
+          },
+          hint: {
+            text: "The status will be use to generate KPI figures in monthly reports"
+          },
+          items: [
+            {
+              value: "validated",
+              text: "Validated",
+              selected: true
+            },
+            {
+              value: "assessed",
+              text: "Assessed"
+            },
+            {
+              value: "started",
+              text: "Installation started"
+            },
+            {
+              value: "treatedCompleted",
+              text: "Completed"
+            },
+            {
+              value: "epc-c",
+              text: "EPC C acheived"
+            },
+            {
+              value: "withdrawn",
+              text: "Withdrawn"
+            }
+          ]
+        }) }}
+
+        <!-- BATCH NUMBER - LAD ONLY
+        {{ govukInput({
+          label: {
+            text: "Batch number?"
+          },
+          classes: "govuk-input--width-10",
+          id: "batch-number",
+          name: "batchNumber",
+          inputmode: "numeric",
+          spellcheck: false
+        }) }} -->
+
+        <div class="govuk-!-margin-top-8">
+          <h2 class="govuk-heading-m">About the property</h2>
+
+          <!-- ARCHETYPE -->
+          {{ govukSelect({
+            id: "archetype",
+            name: "archetype",
+            label: {
+              text: "Property archetype:"
+            },
+            items: [
+              {
+                value: "choose",
+                text: "Choose archetype",
+                selected: true
+              },
+              {
+                value: "detached",
+                text: "Detached"
+              },
+              {
+                value: "semi-detached",
+                text: "Semi-detached"
+              },
+              {
+                value: "end-terrace",
+                text: "End-terrace"
+              },
+              {
+                value: "mid-terrace",
+                text: "Mid-terrace"
+              },
+              {
+                value: "park-home",
+                text: "Park home"
+              },
+              {
+                value: "flat-high",
+                text: "Flat - High rise"
+              },
+              {
+                value: "flat-medium",
+                text: "Flat - Medium rise"
+              },
+              {
+                value: "flat-low",
+                text: "Flat - Low rise"
+              },
+              {
+                value: "other",
+                text: "Other"
+              }
+            ]
+          }) }}
+
+          <!-- ON/OFF GAS -->
+          {{ govukRadios({
+            name: "onOffGas",
+            fieldset: {
+              legend: {
+                text: "On or off the gas grid:"
+              }
+            },
+            items: [
+              {
+                value: "on-gas-grid",
+                text: "On gas grid"
+              },
+              {
+                value: "off-gas-grid",
+                text: "Off gas grid"
+              }
+            ]
+          }) }}
+
+          <!-- PRE-INSTALL HEATING FUEL -->
+          {{ govukSelect({
+            id: "fuel-source",
+            name: "fuelSource",
+            label: {
+              text: "Pre-installation heating fuel source:"
+            },
+            items: [
+              {
+                value: "choose",
+                text: "Choose heating fuel source",
+                selected: true
+              },
+              {
+                value: "coal",
+                text: "Coal"
+              },
+              {
+                value: "oil",
+                text: "Oil"
+              },
+              {
+                value: "bulk-LPG",
+                text: "Bulk LPG"
+              },
+              {
+                value: "bottled-LPG",
+                text: "Bottled LPG"
+              },
+              {
+                value: "electricity",
+                text: "Electricity"
+              },
+              {
+                value: "biomass",
+                text: "Biomass"
+              },
+              {
+                value: "no-heating-system",
+                text: "No heating system installed"
+              }
+            ]
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-top-8">
+          <h2 class="govuk-heading-m">SAP scores</h2>
+
+          <!-- PRE-INSTALL SAP -->
+          {% call govukFieldset({
+            legend: {
+              text: "Pre-installation SAP",
+              classes: "govuk-fieldset__legend--s"
+            }
+          }) %}
+
+            {{ govukInput({
+              label: {
+                text: "Score"
+              },
+              classes: "govuk-input--width-10",
+              id: "pre-score",
+              name: "preScore",
+              autocomplete: "pre-score",
+              spellcheck: false
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Certificate number"
+              },
+              id: "pre-certificate-number",
+              name: "preCertificateNumber",
+              autocomplete: "pre-certificate-number",
+              inputmode: "numeric",
+              spellcheck: false
+            }) }}
+
+          {% endcall %}
+
+          <!-- POST-INSTALL SAP -->
+          <!-- SHOULD BE REQUIRED IS THE STATUS IS CHANGED TO 'COMPLETE'-->
+          {% call govukFieldset({
+            legend: {
+              text: "Post-installation SAP",
+              classes: "govuk-fieldset__legend--s"
+            }
+          }) %}
+
+            {{ govukInput({
+              label: {
+                text: "Score (optional)"
+              },
+              classes: "govuk-input--width-10",
+              id: "post-score",
+              name: "postScore",
+              autocomplete: "post-score",
+              spellcheck: false
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Certificate number (optional)"
+              },
+              id: "post-certificate-number",
+              name: "postCertificateNumber",
+              autocomplete: "post-certificate-number",
+              inputmode: "numeric",
+              spellcheck: false
+            }) }}
+
+          {% endcall %}
+
+        </div>
+
+        <div class="govuk-!-margin-top-5">
+          <h2 class="govuk-heading-m">Tenancy</h2>
+          
+          <!--TENURE TYPE-->
+          {{ govukRadios({
+            name: "tenureType",
+            fieldset: {
+              legend: {
+                text: "Tenure type:"
+              }
+            },
+            items: [
+              {
+                value: "owner-occupied",
+                text: "Owner occupied"
+              },
+              {
+                value: "private-rented",
+                text: "Private rented"
+              },
+              {
+                value: "social-rented",
+                text: "Social rented"
+              }
+            ]
+          }) }}
+
+          <!-- PN issued -->
+          {{ govukCheckboxes({
+            name: "PN",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Has the occupant has been issued with a PN?"
+              }
+            },
+            items: [
+              {
+                value: "PN-issued",
+                text: "Yes"
+              },
+              {
+                value: "PN-not-issued",
+                text: "No"
+              }
+            ]
+          }) }}
+
+          <!-- TENANT DROPOUT -->
+          <!-- IS THIS STILL REQUIRED IF WE HAVE THE 'WITHDRAWN' STATUS?-->
+          {{ govukCheckboxes({
+            name: "tenantDropout",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Has the tenant dropped out or refused to participate? (optional)"
+              }
+            },
+            items: [
+              {
+                value: "dropped-out",
+                text: "Yes"
+              }
+            ]
+          }) }}
+        </div>
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Add property"
+          }) }}
+
+          {{ govukButton({
+            text: "Cancel",
+            classes: "govuk-button--secondary"
+          }) }}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
