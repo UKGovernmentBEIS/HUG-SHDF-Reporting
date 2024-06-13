@@ -1,7 +1,7 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/shdf.html" %}
 
 {% block pageTitle %}
-  Properties – {{ serviceName }} – GOV.UK Prototype Kit
+  SHDF Properties – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-full">
 
       <h1 class="govuk-heading-l">
-        Your properties
+        SHDF properties
       </h1>
 
       <a href="add.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add properties</a>
@@ -69,10 +69,6 @@
             text: "Date added"
           },
           {
-            text: "Batch ID",
-            format: "numeric"
-          },
-          {
             text: "Status"
           },
           {
@@ -82,29 +78,6 @@
         rows: [
           [
             {
-              text: "10 New Street"
-            },
-            {
-              text: "AB1 2YZ"
-            },
-            {
-              text: "10 Oct 2024"
-            },
-            {
-              text: "3",
-              format: "numeric"
-            },
-            {
-              html: "<strong class='govuk-tag govuk-tag--purple'>
-                Validated
-              </strong>"
-            },
-            {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
-            }
-          ],
-          [
-            {
               text: "20 Dummy Lane"
             },
             {
@@ -112,10 +85,6 @@
             },
             {
               text: "10 Oct 2024"
-            },
-            {
-              text: "3",
-              format: "numeric"
             },
             {
               html: "<strong class='govuk-tag govuk-tag--light-blue'>
@@ -137,12 +106,8 @@
               text: "10 Oct 2024"
             },
             {
-              text: "3",
-              format: "numeric"
-            },
-            {
-              html: "<strong class='govuk-tag govuk-tag--blue'>
-                Started
+              html: "<strong class='govuk-tag govuk-tag--purple'>
+                Tenant Signed
               </strong>"
             },
             {
@@ -160,12 +125,8 @@
               text: "30 Sept 2024"
             },
             {
-              text: "2",
-              format: "numeric"
-            },
-            {
-              html: "<strong class='govuk-tag govuk-tag--turquoise'>
-                Completed
+              html: "<strong class='govuk-tag govuk-tag--blue'>
+                Started
               </strong>"
             },
             {
@@ -183,8 +144,42 @@
               text: "30 Sept 2024"
             },
             {
-              text: "2",
-              format: "numeric"
+              html: "<strong class='govuk-tag govuk-tag--green'><!-- colour -->
+                Installation complete
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "14 Testing Lane"
+            },
+            {
+              text: "AB1 2YZ"
+            },
+            {
+              text: "30 Sept 2024"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--turquoise'>
+                Complete
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "14 Testing Lane"
+            },
+            {
+              text: "AB1 2YZ"
+            },
+            {
+              text: "30 Sept 2024"
             },
             {
               html: "<strong class='govuk-tag govuk-tag--green'>
@@ -204,10 +199,6 @@
             },
             {
               text: "24 Sept 2024"
-            },
-            {
-              text: "1",
-              format: "numeric"
             },
             {
               html: "<strong class='govuk-tag govuk-tag--red'>

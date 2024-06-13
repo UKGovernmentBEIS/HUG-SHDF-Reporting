@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/lad.html" %}
 
 {% block pageTitle %}
   Add property details – {{ serviceName }} – GOV.UK Prototype Kit
@@ -74,7 +74,7 @@
           ]
         }) }}
 
-        <!-- BATCH NUMBER - LAD ONLY
+        <!-- BATCH NUMBER -->
         {{ govukInput({
           label: {
             text: "Batch number?"
@@ -84,7 +84,7 @@
           name: "batchNumber",
           inputmode: "numeric",
           spellcheck: false
-        }) }} -->
+        }) }}
 
         <div class="govuk-!-margin-top-8">
           <h2 class="govuk-heading-m">About the property</h2>
@@ -277,69 +277,60 @@
         </div>
 
         <div class="govuk-!-margin-top-5">
-          <h2 class="govuk-heading-m">Tenancy</h2>
+          <h2 class="govuk-heading-m">Occupants and owners</h2>
           
-          <!--TENURE TYPE-->
-          {{ govukRadios({
-            name: "tenureType",
-            fieldset: {
-              legend: {
-                text: "Tenure type:"
-              }
+          <!-- OCCUPANT DETAILS-->
+          {{ govukInput({
+            label: {
+              text: "Occupant name:"
             },
-            items: [
-              {
-                value: "owner-occupied",
-                text: "Owner occupied"
-              },
-              {
-                value: "private-rented",
-                text: "Private rented"
-              },
-              {
-                value: "social-rented",
-                text: "Social rented"
-              }
-            ]
+            classes: "govuk-input--width-20",
+            id: "occupant-name",
+            name: "occupantName",
+            spellcheck: false
           }) }}
 
-          <!-- PN issued -->
-          {{ govukCheckboxes({
-            name: "PN",
-            classes: "govuk-checkboxes--small",
-            fieldset: {
-              legend: {
-                text: "Has the occupant has been issued with a PN?"
-              }
+          {{ govukInput({
+            label: {
+              text: "Occupant email:"
             },
-            items: [
-              {
-                value: "PN-issued",
-                text: "Yes"
-              },
-              {
-                value: "PN-not-issued",
-                text: "No"
-              }
-            ]
+            classes: "govuk-input--width-20",
+            id: "occupant-email",
+            name: "occupantEmail",
+            type: "email",
+            spellcheck: false
           }) }}
 
-          <!-- TENANT DROPOUT -->
-          <!-- IS THIS STILL REQUIRED IF WE HAVE THE 'WITHDRAWN' STATUS?-->
-          {{ govukCheckboxes({
-            name: "tenantDropout",
-            classes: "govuk-checkboxes--small",
-            fieldset: {
-              legend: {
-                text: "Has the tenant dropped out or refused to participate? (optional)"
-              }
+          {{ govukInput({
+            label: {
+              text: "Occupant contact number"
             },
-            items: [
-              {
-                value: "dropped-out",
-                text: "Yes"
-              }
-            ]
+            id: "occupant-number",
+            name: "occupantNumber",
+            type: "tel",
+            classes: "govuk-input--width-20"
+          }) }}
+
+          <!-- LANDLORD DETAILS-->
+          {{ govukInput({
+            label: {
+              text: "Landlord email:"
+            },
+            classes: "govuk-input--width-20",
+            id: "landlord-email",
+            name: "landlordEmail",
+            type: "email",
+            spellcheck: false
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Landlord contact number"
+            },
+            id: "landlord-number",
+            name: "landlordNumber",
+            type: "tel",
+            classes: "govuk-input--width-20"
           }) }}
         </div>
 
