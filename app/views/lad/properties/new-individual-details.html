@@ -28,17 +28,12 @@
         LAD property details
       </h1>
 
-      <div class="govuk-inset-text">
-        <p class="govuk-body-l"><strong>Address:</strong> 10 New Street, Nottingham, AB1 2YZ</p>
-        <p class="govuk-body-s"><strong>UPRN:</strong> 123456789</p>
-        <p class="govuk-body-s"><strong>Date added:</strong> 10 October 2024</p>
-      </div>
-
-      <form class="form" action="list.html" method="post">
+      <form class="form" action="new-individual-measures" method="post">
         <!-- SET STATUS -->
         {{ govukSelect({
           id: "status",
           name: "status",
+          value: data['status'],
           label: {
             text: "Property status:"
           },
@@ -47,28 +42,28 @@
           },
           items: [
             {
-              value: "validated",
+              value: "Validated",
               text: "Validated",
               selected: true
             },
             {
-              value: "assessed",
+              value: "Assessed",
               text: "Assessed"
             },
             {
-              value: "started",
+              value: "Started",
               text: "Installation started"
             },
             {
-              value: "treated",
+              value: "Treated",
               text: "Treated"
             },
             {
-              value: "treatedCompleted",
+              value: "Home Completed",
               text: "Completed"
             },
             {
-              value: "withdrawn",
+              value: "Withdrawn",
               text: "Withdrawn"
             }
           ]
@@ -83,7 +78,8 @@
           id: "batch-number",
           name: "batchNumber",
           inputmode: "numeric",
-          spellcheck: false
+          spellcheck: false,
+          value: data['batchNumber']
         }) }}
 
         <div class="govuk-!-margin-top-8">
@@ -93,6 +89,7 @@
           {{ govukSelect({
             id: "archetype",
             name: "archetype",
+            value: data['archetype'],
             label: {
               text: "Property archetype:"
             },
@@ -103,39 +100,39 @@
                 selected: true
               },
               {
-                value: "detached",
+                value: "Detached",
                 text: "Detached"
               },
               {
-                value: "semi-detached",
+                value: "Semi-detached",
                 text: "Semi-detached"
               },
               {
-                value: "end-terrace",
+                value: "End-terrace",
                 text: "End-terrace"
               },
               {
-                value: "mid-terrace",
+                value: "Mid-terrace",
                 text: "Mid-terrace"
               },
               {
-                value: "park-home",
+                value: "Park Home",
                 text: "Park home"
               },
               {
-                value: "flat-high",
+                value: "Flat - High rise",
                 text: "Flat - High rise"
               },
               {
-                value: "flat-medium",
+                value: "Flat - Medium rise",
                 text: "Flat - Medium rise"
               },
               {
-                value: "flat-low",
+                value: "Flat - Low rise",
                 text: "Flat - Low rise"
               },
               {
-                value: "other",
+                value: "Other",
                 text: "Other"
               }
             ]
@@ -144,6 +141,7 @@
           <!-- ON/OFF GAS -->
           {{ govukRadios({
             name: "onOffGas",
+            value: data['onOffGas'],
             fieldset: {
               legend: {
                 text: "On or off the gas grid:"
@@ -151,11 +149,11 @@
             },
             items: [
               {
-                value: "on-gas-grid",
+                value: "On gas grid",
                 text: "On gas grid"
               },
               {
-                value: "off-gas-grid",
+                value: "Off gas grid",
                 text: "Off gas grid"
               }
             ]
@@ -165,6 +163,7 @@
           {{ govukSelect({
             id: "fuel-source",
             name: "fuelSource",
+            value: data['fuelSource'],
             label: {
               text: "Pre-installation heating fuel source:"
             },
@@ -175,31 +174,31 @@
                 selected: true
               },
               {
-                value: "coal",
+                value: "Coal",
                 text: "Coal"
               },
               {
-                value: "oil",
+                value: "Oil",
                 text: "Oil"
               },
               {
-                value: "bulk-LPG",
+                value: "Bulk LPG",
                 text: "Bulk LPG"
               },
               {
-                value: "bottled-LPG",
+                value: "Bottled LPG",
                 text: "Bottled LPG"
               },
               {
-                value: "electricity",
+                value: "Electricity",
                 text: "Electricity"
               },
               {
-                value: "biomass",
+                value: "Biomass",
                 text: "Biomass"
               },
               {
-                value: "no-heating-system",
+                value: "No heating system",
                 text: "No heating system installed"
               }
             ]
@@ -225,7 +224,8 @@
               id: "pre-score",
               name: "preScore",
               autocomplete: "pre-score",
-              spellcheck: false
+              spellcheck: false,
+              value: data['preScore']
             }) }}
 
             {{ govukInput({
@@ -236,7 +236,8 @@
               name: "preCertificateNumber",
               autocomplete: "pre-certificate-number",
               inputmode: "numeric",
-              spellcheck: false
+              spellcheck: false,
+              value: data['preCertificateNumber']
             }) }}
 
           {% endcall %}
@@ -258,7 +259,8 @@
               id: "post-score",
               name: "postScore",
               autocomplete: "post-score",
-              spellcheck: false
+              spellcheck: false,
+              value: data['postScore']
             }) }}
 
             {{ govukInput({
@@ -269,7 +271,8 @@
               name: "postCertificateNumber",
               autocomplete: "post-certificate-number",
               inputmode: "numeric",
-              spellcheck: false
+              spellcheck: false,
+              value: data['postCertificateNumber']
             }) }}
 
           {% endcall %}
@@ -287,7 +290,8 @@
             classes: "govuk-input--width-20",
             id: "occupant-name",
             name: "occupantName",
-            spellcheck: false
+            spellcheck: false,
+            value: data['occupantName']
           }) }}
 
           {{ govukInput({
@@ -298,7 +302,8 @@
             id: "occupant-email",
             name: "occupantEmail",
             type: "email",
-            spellcheck: false
+            spellcheck: false,
+            value: data['occupantEmail']
           }) }}
 
           {{ govukInput({
@@ -308,7 +313,8 @@
             id: "occupant-number",
             name: "occupantNumber",
             type: "tel",
-            classes: "govuk-input--width-20"
+            classes: "govuk-input--width-20",
+            value: data['occupantNumber']
           }) }}
 
           <!-- LANDLORD DETAILS-->
@@ -320,7 +326,8 @@
             id: "landlord-email",
             name: "landlordEmail",
             type: "email",
-            spellcheck: false
+            spellcheck: false,
+            value: data['landlordEmail']
           }) }}
 
           {{ govukInput({
@@ -330,13 +337,14 @@
             id: "landlord-number",
             name: "landlordNumber",
             type: "tel",
-            classes: "govuk-input--width-20"
+            classes: "govuk-input--width-20",
+            value: data['landlordNumber']
           }) }}
         </div>
 
-        <div class="govuk-button-group">
+        <div class="govuk-button-group govuk-!-margin-top-8">
           {{ govukButton({
-            text: "Add property"
+            text: "Continue"
           }) }}
 
           {{ govukButton({
@@ -348,6 +356,15 @@
       </form>
 
     </div>
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-inset-text">
+        <p class="govuk-body-l"><strong>Address:</strong> {{ data['addressLine1'] }}, {{ data['addressLine2'] }} {{ data['addressTown'] }}, {{ data['addressCounty'] }} {{ data['addressPostcode'] }}</p>
+        <p class="govuk-body-s"><strong>UPRN:</strong> 123456789</p>
+        <p class="govuk-body-s"><strong>Scheme:</strong> Local Authority Delivery (LAD)</p>
+      </div>
+    </div>
+
   </div>
 
 {% endblock %}

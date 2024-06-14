@@ -39,7 +39,8 @@
             },
             id: "address-line-1",
             name: "addressLine1",
-            autocomplete: "address-line1"
+            autocomplete: "address-line1",
+            value: data['addressLine1']
           }) }}
 
           {{ govukInput({
@@ -48,7 +49,8 @@
             },
             id: "address-line-2",
             name: "addressLine2",
-            autocomplete: "address-line2"
+            autocomplete: "address-line2",
+            value: data['addressLine2']
           }) }}
 
           {{ govukInput({
@@ -58,7 +60,8 @@
             classes: "govuk-!-width-two-thirds",
             id: "address-town",
             name: "addressTown",
-            autocomplete: "address-level2"
+            autocomplete: "address-town",
+            value: data['addressTown']
           }) }}
 
           {{ govukInput({
@@ -67,7 +70,8 @@
             },
             classes: "govuk-!-width-two-thirds",
             id: "address-county",
-            name: "addressCounty"
+            name: "addressCounty",
+            value: data['addressCounty']
           }) }}
 
           {{ govukInput({
@@ -77,7 +81,8 @@
             classes: "govuk-input--width-10",
             id: "address-postcode",
             name: "addressPostcode",
-            autocomplete: "postal-code"
+            autocomplete: "postal-code",
+            value: data['addressPostcode']
           }) }}
 
         {% endcall %}

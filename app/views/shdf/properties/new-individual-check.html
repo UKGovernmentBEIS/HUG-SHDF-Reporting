@@ -1,0 +1,260 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before adding the SHDF property
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Addess"
+            },
+            value: {
+              text: data['addressLine1']+data['addressLine2']+data['addressTown']+data['addressCounty']+data['addressPostcode']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-address",
+                  text: "Change",
+                  visuallyHiddenText: "Address"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Property status"
+            },
+            value: {
+              text: data['status']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-details",
+                  text: "Change",
+                  visuallyHiddenText: "Property status"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Property archetype"
+            },
+            value: {
+              text: data['archetype']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-details",
+                  text: "Change",
+                  visuallyHiddenText: "Property archetype"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "On or off gas grid"
+            },
+            value: {
+              text: data['onOffGas']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-details",
+                  text: "Change",
+                  visuallyHiddenText: "On or off gas grid"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Pre-installation heating fuel source"
+            },
+            value: {
+              text: data['fuelSource']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-details",
+                  text: "Change",
+                  visuallyHiddenText: "Pre-installation heating fuel source"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Pre-installation SAP score"
+            },
+            value: {
+              text: data['preScore']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-details",
+                  text: "Change",
+                  visuallyHiddenText: "Pre-installation SAP score"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Pre-installation SAP certificate number"
+            },
+            value: {
+              text: data['preCertificateNumber']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-details",
+                  text: "Change",
+                  visuallyHiddenText: "Pre-installation SAP certificate number"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Post-installation SAP score"
+            },
+            value: {
+              text: data['postScore']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-details",
+                  text: "Change",
+                  visuallyHiddenText: "Post-installation SAP score"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Post-installation SAP certificate number"
+            },
+            value: {
+              text: data['postCertificateNumber']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-details",
+                  text: "Change",
+                  visuallyHiddenText: "Post-installation SAP certificate number"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Tenure type"
+            },
+            value: {
+              text: data['tenureType']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-details",
+                  text: "Change",
+                  visuallyHiddenText: "Tenure type"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Privacy notice issued"
+            },
+            value: {
+              text: data['PN']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-details",
+                  text: "Change",
+                  visuallyHiddenText: "Privacy notice issued"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Proposed measure 1"
+            },
+            value: {
+              text: data['measure1']
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-individual-measures",
+                  text: "Change",
+                  visuallyHiddenText: "Proposed measure 1"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Now add the new property
+      </h2>
+
+      <p>
+        Adding this property will increase your current 'Properties assessed' KPI by one.
+      </p>
+
+      <form action="new-individual-confirm" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Add property"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
