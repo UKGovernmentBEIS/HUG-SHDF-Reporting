@@ -1,0 +1,56 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">
+        SHDF Properties
+      </h1>
+
+      {% from 'node_modules/dfe-frontend/packages/components/card/macro.njk' import card %}
+      {{ card({
+          cards: [
+              {
+                  "imageCard": false,
+                  "imagePath": "/images/sample-image.jpg",
+                  "altText": "Sample Image",
+                  "headingLevel": "3",
+                  "linkCard": true,
+                  "link": "add.html",
+                  "openInNewTab": false,
+                  "heading": "Add new properties",
+                  "description": "Choose whether to add properties one at a time or in bulk.",
+                  "meta": ""
+              },
+              {
+                "imageCard": false,
+                "imagePath": "/images/sample-image.jpg",
+                "altText": "Sample Image",
+                "headingLevel": "3",
+                "linkCard": true,
+                "link": "list.html",
+                "openInNewTab": false,
+                "heading": "View and update existing properties",
+                "description": "Search the list of properties on your register to see or edit details about each property.",
+                "meta": ""
+            }
+          ]
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

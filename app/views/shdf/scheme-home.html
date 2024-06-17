@@ -1,0 +1,91 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Social Housing and Decarbonisation Fund (SHDF)
+      </h1>
+
+      {% from 'node_modules/dfe-frontend/packages/components/card/macro.njk' import card %}
+      {{ card({
+          cards: [
+              {
+                  "imageCard": false,
+                  "imagePath": "/images/sample-image.jpg",
+                  "altText": "Sample Image",
+                  "headingLevel": "3",
+                  "linkCard": true,
+                  "link": "properties/properties",
+                  "openInNewTab": false,
+                  "heading": "Manage properties",
+                  "description": "Add, view and edit properties on your register.",
+                  "meta": ""
+              },
+              {
+                "imageCard": false,
+                "imagePath": "/images/sample-image.jpg",
+                "altText": "Sample Image",
+                "headingLevel": "3",
+                "linkCard": true,
+                "link": "reports/reports",
+                "openInNewTab": false,
+                "heading": "Monthly reporting",
+                "description": "Generate a new monthly report or view previous reports.",
+                "meta": ""
+              },
+              {
+                "imageCard": false,
+                "imagePath": "/images/sample-image.jpg",
+                "altText": "Sample Image",
+                "headingLevel": "3",
+                "linkCard": true,
+                "link": "project-performance",
+                "openInNewTab": false,
+                "heading": "Project performance",
+                "description": "View your baselines, forecasts and KPIs.",
+                "meta": ""
+            },
+            {
+              "imageCard": false,
+              "imagePath": "/images/sample-image.jpg",
+              "altText": "Sample Image",
+              "headingLevel": "3",
+              "linkCard": true,
+              "link": "risks",
+              "openInNewTab": false,
+              "heading": "Report risks",
+              "description": "Record possible instances of fraud or error.",
+              "meta": ""
+            },
+            {
+              "imageCard": false,
+              "imagePath": "/images/sample-image.jpg",
+              "altText": "Sample Image",
+              "headingLevel": "3",
+              "linkCard": true,
+              "link": "team",
+              "openInNewTab": false,
+              "heading": "Manage your team",
+              "description": "View, add or remove team members.",
+              "meta": ""
+            }
+          ]
+      }) }}
+
+    </div>
+
+  </div>
+
+{% endblock %}

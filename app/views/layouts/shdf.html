@@ -10,27 +10,31 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   serviceName: "Report progress on SHDF projects",
   serviceUrl: "#",
   navigation: [
-    {
-      href: "/start.html",
-      text: "Home"
-    },
-    {
-        href: "#1",
-        text: "Project summary"
-    },
-    {
-        href: "/shdf/properties/list.html",
-        text: "Properties",
-        active: true
-    },
-    {
-      href: "#2",
-      text: "Monthly reports"
-    },
-    {
-      href: "#3",
-      text: "Project performance"
-    }
+  {
+    href: "/shdf/scheme-home.html",
+    text: "Home",
+    active: true
+  },
+  {
+      href: "/shdf/properties/properties.html",
+      text: "Properties"
+  },
+  {
+    href: "#2",
+    text: "Monthly reports"
+  },
+  {
+    href: "#3",
+    text: "Project performance"
+  },
+  {
+      href: "#4",
+      text: "Risks"
+  },
+  {
+      href: "#5",
+      text: "Project team"
+  }
   ]
 }) }}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}

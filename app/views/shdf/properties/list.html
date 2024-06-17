@@ -17,10 +17,8 @@
     <div class="govuk-grid-column-full">
 
       <h1 class="govuk-heading-l">
-        SHDF properties
+        Properties on your register
       </h1>
-
-      <a href="add.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add properties</a>
 
       {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
@@ -28,7 +26,7 @@
         html: "
         <form class='form' action='/path/of/next/page' method='post'>
             <fieldset class='govuk-fieldset govuk-grid-row'>
-              <legend class='govuk-fieldset__legend'>
+              <legend class='govuk-fieldset__legend govuk-heading-m'>
                 Find a property:
               </legend>
               <div class='govuk-form-group'>
@@ -54,8 +52,6 @@
       {% from "govuk/components/table/macro.njk" import govukTable %}
 
       {{ govukTable({
-        caption: "Current properties (36)",
-        captionClasses: "govuk-table__caption--m",
         firstCellIsHeader: true,
         classes: "govuk-table--small-text-until-tablet",
         head: [
@@ -72,7 +68,7 @@
             text: "Status"
           },
           {
-            text: "Edit"
+            text: "Actions"
           }
         ],
         rows: [
@@ -92,7 +88,7 @@
               </strong>"
             },
             {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
             }
           ],
           [
@@ -111,7 +107,7 @@
               </strong>"
             },
             {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
             }
           ],
           [
@@ -130,7 +126,7 @@
               </strong>"
             },
             {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
             }
           ],
           [
@@ -149,7 +145,7 @@
               </strong>"
             },
             {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
             }
           ],
           [
@@ -168,7 +164,7 @@
               </strong>"
             },
             {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
+              html: "<a href='#' class='govuk-link'>View</a>"
             }
           ],
           [
@@ -187,7 +183,7 @@
               </strong>"
             },
             {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
+              html: "<a href='#' class='govuk-link'>View</a>"
             }
           ],
           [
@@ -206,7 +202,7 @@
               </strong>"
             },
             {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
             }
           ],
 
@@ -226,7 +222,7 @@
               </strong>"
             },
             {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
             }
           ],
 
@@ -246,7 +242,7 @@
               </strong>"
             },
             {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
             }
           ],
 
@@ -266,7 +262,7 @@
               </strong>"
             },
             {
-              html: "<a href='#' class='govuk-link'>Edit</a>"
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
             }
           ]
         ]
