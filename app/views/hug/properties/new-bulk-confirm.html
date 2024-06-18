@@ -1,7 +1,7 @@
 {% extends "layouts/hug.html" %}
 
 {% block pageTitle %}
-  Confirmation of new property – {{ serviceName }} – GOV.UK Prototype Kit
+  Bulk upload confirmation – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -10,8 +10,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       {{ govukPanel({
-        titleText: "New property added",
-        text: data['addressLine1']+data['addressLine2']+data['addressTown']+data['addressCounty']+data['addressPostcode']
+        titleText: "10 properties added"
       }) }}
 
       <h2 class="govuk-heading-m">
@@ -19,11 +18,11 @@
       </h2>
 
       <p>
-        We've increased your 'Properties validated' KPI by one property.
+        We have update your KPIs.
       </p>
 
       <p>
-        You can now find this property in your property list where you can edit it. Keep the status of the property up-to-date to ensure your KPIs are ready for each monthly report.
+        You can now find the new properties in your property list where you can edit them. Keep the status of properties up-to-date to ensure your KPIs are ready for each monthly report.
       </p>
       <p>
         <a href="list.html">
