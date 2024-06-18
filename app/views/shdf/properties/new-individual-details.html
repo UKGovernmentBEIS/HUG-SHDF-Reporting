@@ -229,8 +229,8 @@
 
           {% endcall %}
 
-          <!-- POST-INSTALL SAP -->
-          <!-- SHOULD BE REQUIRED IS THE STATUS IS CHANGED TO 'COMPLETE'-->
+          <!-- POST-INSTALL SAP
+            MAY NOT BE REQUIRED WHEN ADDING - TBC
           {% call govukFieldset({
             legend: {
               text: "Post-installation SAP",
@@ -262,7 +262,7 @@
               value: data['postCertificateNumber']
             }) }}
 
-          {% endcall %}
+          {% endcall %}-->
 
         </div>
 
@@ -294,7 +294,8 @@
             ]
           }) }}
 
-          <!-- PN issued -->
+          <!-- PN ISSUED
+            ONLY REQUIRED IF STATUS IS 'TENENT ENGAGED' OR FURTHER - CONSIDER PLACEMENT
           {{ govukCheckboxes({
             name: "PN",
             classes: "govuk-checkboxes--small",
@@ -314,7 +315,7 @@
                 text: "No"
               }
             ]
-          }) }}
+          }) }} -->
         </div>
 
         <div class="govuk-button-group">

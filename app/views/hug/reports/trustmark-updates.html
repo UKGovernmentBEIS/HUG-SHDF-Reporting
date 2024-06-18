@@ -1,0 +1,80 @@
+{% extends "layouts/hug.html" %}
+
+{% block pageTitle %}
+  Status updates – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/path/of/next/page" method="post">
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "waste",
+          fieldset: {
+            legend: {
+              text: "Which of these properties are now complete?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "New lodgements for these properties have been found on TrustMark. We have added the validated measures to the property record."
+          },
+          items: [
+            {
+              value: "13 Testing Lane, AB1 2YZ",
+              html: "<p>13 Testing Lane, AB1 2YZ <strong class='govuk-tag govuk-tag--turquoise'>Treated</strong>"
+            },
+            {
+              value: "7 Placeholder Drive, AB1 2YZ",
+              html: "<p>7 Placeholder Drive, AB1 2YZ <strong class='govuk-tag govuk-tag--blue'>Started</strong></p>"
+            },
+            {
+              value: "8 Placeholder Drive, AB1 2YZ",
+              html: "<p>8 Placeholder Drive, AB1 2YZ <strong class='govuk-tag govuk-tag--blue'>Started</strong></p>"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Update to 'Complete'"
+        }) }}
+
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Update other property statuses
+        </h2>
+        <p>Property statuses are used to generate KPIs in monthly reports.</p>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="/hug/properties/list.html" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+                Properties list
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}
