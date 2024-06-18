@@ -1,0 +1,42 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Bulk upload confirmation – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "10 properties added"
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        We have update your KPIs.
+      </p>
+
+      <p>
+        You can now find the new properties in your property list where you can edit them. Keep the status of properties up-to-date to ensure your KPIs are ready for each monthly report.
+      </p>
+      <p>
+        <a href="list.html">
+          Go to your SHDF properties
+        </a>
+      </p>
+      <p>
+        <a href="add.html">
+          Add more properties
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

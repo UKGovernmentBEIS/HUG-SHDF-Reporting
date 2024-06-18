@@ -1,0 +1,49 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Bulk upload properties – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Add multiple properties
+      </h1>
+
+      <ol class="govuk-list govuk-list--number">
+        <li>Download the multiple properties template:
+          <br><a href="#" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+            Multiple properties template
+          </a>
+        </li>
+        <li>Complete a row per property you want to add.</li>
+        <li>When you have completed all the details for each property, save and upload your file here:</li>
+      </ol>
+          {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+          {{ govukFileUpload({
+            id: "file-upload-1",
+            name: "fileUpload1",
+            label: {
+              text: "Upload completed properties list"
+            }
+          }) }}
+        
+          <a href="new-bulk-check.html" role="button" draggable="false" class="govuk-button moj-button-menu__item" data-module="govuk-button">
+            Continue
+          </a>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -23,3 +23,20 @@ router.post('/add-properties-method', function (req, res) {
     }
   
   })
+
+  // Run this code when a form is submitted to 'add-properties-method-shdf'
+router.post('/add-properties-method-shdf', function (req, res) {
+
+  // Make a variable
+  var whichMethod = req.session.data['addProperties']
+
+  // Check whether the variable matches a condition
+  if (whichMethod == "individual"){
+    // Send user to next page
+    res.redirect('/shdf/properties/new-individual-address')
+  } else {
+    // Send user to ineligible page
+    res.redirect('/shdf/properties/new-bulk')
+  }
+
+})
