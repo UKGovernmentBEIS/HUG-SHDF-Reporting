@@ -1,0 +1,116 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Change type – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Change property type
+      </h1>
+
+      <form class="form" action="/shdf/properties/view-updated" method="post">
+
+        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+        {{ govukSummaryList({
+          classes: "govuk-summary-list--no-border",
+          rows: [
+            {
+              key: {
+                text: "Current type"
+              },
+              value: {
+                text: "Semi-detached"
+              }
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "archetype",
+          name: "archetype",
+          value: data['archetype'],
+          label: {
+            text: "New property type:"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose type"
+            },
+            {
+              value: "Detached",
+              text: "Detached"
+            },
+            {
+              value: "Semi-detached",
+              text: "Semi-detached",
+              selected: true
+            },
+            {
+              value: "End-terrace",
+              text: "End-terrace"
+            },
+            {
+              value: "Mid-terrace",
+              text: "Mid-terrace"
+            },
+            {
+              value: "Park Home",
+              text: "Park home"
+            },
+            {
+              value: "Flat - High rise",
+              text: "Flat - High rise"
+            },
+            {
+              value: "Flat - Medium rise",
+              text: "Flat - Medium rise"
+            },
+            {
+              value: "Flat - Low rise",
+              text: "Flat - Low rise"
+            },
+            {
+              value: "Other",
+              text: "Other"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Update property type"
+          }) }}
+        
+          <a class="govuk-link" href="/shdf/properties/view">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-inset-text">
+        <p class="govuk-body"><strong>Address:</strong> 7 Oakwood Terrace, Greenfield, M15 6HZ</p>
+        <p class="govuk-body-s"><strong>UPRN:</strong> 123456789</p>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

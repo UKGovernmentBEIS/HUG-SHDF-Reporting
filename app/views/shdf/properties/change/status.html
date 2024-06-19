@@ -1,0 +1,105 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Change status – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Change property status
+      </h1>
+
+      <form class="form" action="/path/of/next/page" method="post">
+
+        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+        {{ govukSummaryList({
+          classes: "govuk-summary-list--no-border",
+          rows: [
+            {
+              key: {
+                text: "Current status"
+              },
+              value: {
+                html: "<strong class='govuk-tag govuk-tag--purple'>
+                  Tenant engaged
+                </strong>"
+              }
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "status",
+          name: "status",
+          value: data['status'],
+          label: {
+            text: "New property status:"
+          },
+          hint: {
+            text: "The status will be use to generate KPI figures in monthly reports"
+          },
+          items: [
+            {
+              value: "assessed",
+              text: "Assessed"
+            },
+            {
+              value: "tenant-engaged",
+              text: "Tenant engaged",
+              selected: true
+            },
+            {
+              value: "started",
+              text: "Started"
+            },
+            {
+              value: "install-complete",
+              text: "Install complete"
+            },
+            {
+              value: "handed-over",
+              text: "Handed over"
+            },
+            {
+              value: "withdrawn",
+              text: "Withdrawn"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Update property status"
+          }) }}
+        
+          <a class="govuk-link" href="/shdf/properties/view">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-inset-text">
+        <p class="govuk-body"><strong>Address:</strong> 7 Oakwood Terrace, Greenfield, M15 6HZ</p>
+        <p class="govuk-body-s"><strong>UPRN:</strong> 123456789</p>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

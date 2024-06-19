@@ -1,4 +1,4 @@
-{% extends "layouts/shdf.html" %}
+{% extends "layouts/hug.html" %}
 
 {% block pageTitle %}
   View property – {{ serviceName }} – GOV.UK Prototype Kit
@@ -31,14 +31,14 @@
         rows: [
           {
             key: {
-              html: "<strong class='govuk-tag govuk-tag--purple'>
-                Tenent engaged
+              html: "<strong class='govuk-tag govuk-tag--light-blue'>
+                Assessed
               </strong>"
             },
             actions: {
               items: [
                 {
-                  href: "change/status",
+                  href: "change/status.html",
                   text: "Change",
                   visuallyHiddenText: "status"
                 }
@@ -122,15 +122,32 @@
         rows: [
           {
             key: {
-              text: "Property type"
+              text: "Batch number"
             },
             value: {
-              html: "Semi-detached"
+              html: "589034"
             },
             actions: {
               items: [
                 {
-                  href: "change/type",
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "batch number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Property type"
+            },
+            value: {
+              html: "Detached"
+            },
+            actions: {
+              items: [
+                {
+                  href: "change/type.html",
                   text: "Change",
                   visuallyHiddenText: "property type"
                 }
@@ -237,40 +254,91 @@
       {{ govukSummaryList({
         card: {
           title: {
-            text: "Tenancy"
+            text: "Occupant and landlord details"
           }
         },
         rows: [
           {
             key: {
-              text: "Tenure type"
+              text: "Occupant name"
             },
             value: {
-              html: "Owner occupied"
+              html: "Eleanor Worthington"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "tenure type"
+                  visuallyHiddenText: "occupant name"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Privacy notice issued to tenant"
+              text: "Occupant email"
             },
             value: {
-              html: "Yes"
+              html: "e.worthington@example.com"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "privacy notice"
+                  visuallyHiddenText: "occupant email"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Occupant contact number"
+            },
+            value: {
+              html: "07890 987654"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "occupant contact number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Landlord email"
+            },
+            value: {
+              html: "landlord2@example.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "landlord email"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Landlord contact number"
+            },
+            value: {
+              html: "07655 88033"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "landlord contact number"
                 }
               ]
             }
@@ -278,7 +346,7 @@
         ]
       }) }}
 
-      <a class="govuk-link" href="/shdf/properties/list">Back to property list</a>
+      <a class="govuk-link" href="/hug/properties/list">Back to property list</a>
 
     </div>
 
