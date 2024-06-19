@@ -1,0 +1,113 @@
+{% extends "layouts/hug.html" %}
+
+{% block pageTitle %}
+  Generate report – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Generate the report for July 2024
+      </h1>
+
+      {% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+
+      {{ govukTaskList({
+        idPrefix: "monthly-report",
+        items: [
+          {
+            title: {
+              text: "Import new lodgements from TrustMark"
+            },
+            href: "trustmark-updates.html",
+            status: {
+              text: "Completed"
+            }
+          },
+          {
+            title: {
+              text: "Update property statuses"
+            },
+            hint: {
+              text: "Ensure all properties are up-to-date."
+            },
+            href: "status-updates.html",
+            status: {
+              tag: {
+                text: "Not yet started",
+                classes: "govuk-tag--blue"
+              }
+            }
+          },
+          {
+            title: {
+              text: "Key Performance Indicators"
+            },
+            hint: {
+              text: "Actuals and forecasts."
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Not yet started",
+              classes: "govuk-tag--blue"
+              }
+            }
+          },
+          {
+            title: {
+              text: "Spending figures"
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Not yet started",
+                classes: "govuk-tag--blue"
+              }
+            }
+          },
+          {
+            title: {
+              text: "Project updates"
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Not yet started",
+                classes: "govuk-tag--blue"
+              }
+            }
+          }
+        ]
+      }) }}
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Submit report",
+          href: "#"
+        }) }}
+
+        {{ govukButton({
+          text: "Save draft report",
+          href: "#",
+          classes: "govuk-button--secondary"
+        }) }}
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

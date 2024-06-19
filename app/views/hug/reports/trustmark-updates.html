@@ -1,7 +1,7 @@
 {% extends "layouts/hug.html" %}
 
 {% block pageTitle %}
-  Status updates – {{ serviceName }} – GOV.UK Prototype Kit
+  Trustmark lodgements – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,67 +14,123 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Properties with new lodgements in TrustMark</h1>
 
-      <form class="form" action="/path/of/next/page" method="post">
+      <p class="govuk-body">Update the property statuses if required.</p>
 
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+      {% from "govuk/components/table/macro.njk" import govukTable %}
 
-        {{ govukCheckboxes({
-          name: "waste",
-          fieldset: {
-            legend: {
-              text: "Which of these properties are now complete?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
+      {{ govukTable({
+        firstCellIsHeader: true,
+        classes: "govuk-table--small-text-until-tablet",
+        head: [
+          {
+            text: "First line address"
+          },
+          {
+            text: "Postcode"
+          },
+          {
+            text: "Proposed measures",
+            format: "numeric"
+          },
+          {
+            text: "Lodgements",
+            format: "numeric"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "10 New Street"
+            },
+            {
+              text: "AB1 2YZ"
+            },
+            {
+              text: "3",
+              format: "numeric"
+            },
+            {
+              text: "3",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--purple'>
+                Validated
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
             }
-          },
-          hint: {
-            text: "New lodgements for these properties have been found on TrustMark. We have added the validated measures to the property record."
-          },
-          items: [
+          ],
+          [
             {
-              value: "13 Testing Lane, AB1 2YZ",
-              html: "<p>13 Testing Lane, AB1 2YZ <strong class='govuk-tag govuk-tag--turquoise'>Treated</strong>"
+              text: "20 Dummy Road"
             },
             {
-              value: "7 Placeholder Drive, AB1 2YZ",
-              html: "<p>7 Placeholder Drive, AB1 2YZ <strong class='govuk-tag govuk-tag--blue'>Started</strong></p>"
+              text: "AB1 2YZ"
             },
             {
-              value: "8 Placeholder Drive, AB1 2YZ",
-              html: "<p>8 Placeholder Drive, AB1 2YZ <strong class='govuk-tag govuk-tag--blue'>Started</strong></p>"
+              text: "0",
+              format: "numeric"
+            },
+            {
+              text: "4",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--light-blue'>
+                Assessed
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "12 Testing Lane"
+            },
+            {
+              text: "AB1 2YZ"
+            },
+            {
+              text: "2",
+              format: "numeric"
+            },
+            {
+              text: "3",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--light-blue'>
+                Assessed
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a> <a href='#' class='govuk-link'>Edit</a>"
             }
           ]
-        }) }}
+        ]
+      }) }}
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
 
         {{ govukButton({
-          text: "Update to 'Complete'"
+          text: "New lodgements complete",
+          href: "generate-report-1.html"
         }) }}
 
-      </form>
-
     </div>
 
-    <div class="govuk-grid-column-one-third">
-
-      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Update other property statuses
-        </h2>
-        <p>Property statuses are used to generate KPIs in monthly reports.</p>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="/hug/properties/list.html" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
-                Properties list
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-
-    </div>
   </div>
 
 {% endblock %}
