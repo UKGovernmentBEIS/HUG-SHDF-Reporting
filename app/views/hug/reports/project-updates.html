@@ -1,0 +1,88 @@
+{% extends "layouts/hug.html" %}
+
+{% block pageTitle %}
+  Project updates – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Project updates
+      </h1>
+
+      <form class="form" action="generate-report-5" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "rag",
+          fieldset: {
+            legend: {
+              text: "How would you rate progress on the project?"
+            }
+          },
+          items: [
+            {
+              value: "red",
+              text: "Red"
+            },
+            {
+              value: "amber",
+              text: "Amber"
+            },
+            {
+              value: "green",
+              text: "Green"
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          name: "progressUpdate",
+          id: "progress-update",
+          label: {
+            text: "Provide any additional information about progress on the project"
+          },
+          hint: {
+            text: "For example, you could explain why you have choosen red, amber or green above."
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "nextMonth",
+          id: "next-month",
+          label: {
+            text: "What do you have planned for next month?"
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "lessonsLearnt",
+          id: "lessons-learnt",
+          label: {
+            text: "Share any helpful learnings about about running the project (optional)"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

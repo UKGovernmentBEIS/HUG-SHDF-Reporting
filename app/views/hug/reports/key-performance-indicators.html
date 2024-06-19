@@ -20,10 +20,10 @@
         Key performance indicators
       </h1>
 
-      <form class="form" action="/path/of/next/page" method="post">
+      <form class="form" action="generate-report-3" method="post">
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
-        <div>
+        <div class="govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-s">Homes assessed</h2>
           <p><strong>Actual:</strong> 1</p>
 
@@ -37,7 +37,7 @@
           }) }}
         </div>
 
-        <div>
+        <div class="govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-s">Homes started installation</h2>
           <p><strong>Actual:</strong> 5</p>
 
@@ -51,9 +51,9 @@
           }) }}
         </div>
 
-        <div>
+        <div class="govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-s">Homes with all installations completed</h2>
-          <p><strong>Actual:</strong> 5</p>
+          <p><strong>Actual:</strong> 1</p>
 
           {{ govukInput({
             label: {
@@ -62,6 +62,34 @@
             classes: "govuk-!-width-one-third",
             id: "installed",
             name: "installed"
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Homes completed</h2>
+          <p><strong>Actual:</strong> 4</p>
+
+          {{ govukInput({
+            label: {
+              text: "Homes completed forecast"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "completed",
+            name: "completed"
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Homes to EPC C</h2>
+          <p><strong>Actual:</strong> 1</p>
+
+          {{ govukInput({
+            label: {
+              text: "Homes to EPC C forecast"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "epcC",
+            name: "epcC"
           }) }}
         </div>
 

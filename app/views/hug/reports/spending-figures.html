@@ -1,0 +1,57 @@
+{% extends "layouts/hug.html" %}
+
+{% block pageTitle %}
+  Spending figures – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Spending figures
+      </h1>
+
+      <form class="form" action="generate-report-4" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        <div>
+          <!--<h2 class="govuk-heading-s">Grant capital spend</h2>-->
+
+          {{ govukInput({
+            label: {
+              text: "Actual grant capital spend"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "actualSpend",
+            name: "actual-spend"
+          }) }}
+          
+          {{ govukInput({
+            label: {
+              text: "Forecast grant capital spend"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "forecastSpend",
+            name: "forecast-spend"
+          }) }}
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
