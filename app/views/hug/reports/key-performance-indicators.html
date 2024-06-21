@@ -20,6 +20,8 @@
         Key performance indicators
       </h1>
 
+      <p class="govuk-body">Actual figures are calculated using property statuses. If the actual figures appear to be incorrect, please check and update property statuses first.</p>
+
       <form class="form" action="generate-report-3" method="post">
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -29,7 +31,7 @@
 
           {{ govukInput({
             label: {
-              text: "Homes assessed forecast"
+              text: "Homes assessed forecast for August 2024"
             },
             classes: "govuk-!-width-one-third",
             id: "assessed",
@@ -43,7 +45,7 @@
 
           {{ govukInput({
             label: {
-              text: "Homes started installation forecast"
+              text: "Homes started installation forecast for August 2024"
             },
             classes: "govuk-!-width-one-third",
             id: "started",
@@ -57,7 +59,7 @@
 
           {{ govukInput({
             label: {
-              text: "Homes with all installations completed forecast"
+              text: "Homes with all installations completed forecast for August 2024"
             },
             classes: "govuk-!-width-one-third",
             id: "installed",
@@ -71,7 +73,7 @@
 
           {{ govukInput({
             label: {
-              text: "Homes completed forecast"
+              text: "Homes completed forecast for August 2024"
             },
             classes: "govuk-!-width-one-third",
             id: "completed",
@@ -85,7 +87,7 @@
 
           {{ govukInput({
             label: {
-              text: "Homes to EPC C forecast"
+              text: "Homes to EPC C forecast for August 2024"
             },
             classes: "govuk-!-width-one-third",
             id: "epcC",
