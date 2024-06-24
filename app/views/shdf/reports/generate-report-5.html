@@ -1,0 +1,101 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Generate report – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Generate the report for July 2024
+      </h1>
+
+      {% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+
+      {{ govukTaskList({
+        idPrefix: "monthly-report",
+        items: [
+          {
+            title: {
+              text: "Import new lodgements from TrustMark"
+            },
+            href: "trustmark-updates-changed.html",
+            status: {
+              text: "Completed"
+            }
+          },
+          {
+            title: {
+              text: "Update property statuses"
+            },
+            hint: {
+              text: "Ensure all properties are up-to-date."
+            },
+            href: "status-updates.html",
+            status: {
+              text: "Completed"
+            }
+          },
+          {
+            title: {
+              text: "Report Key Performance Indicators (KPIs)"
+            },
+            hint: {
+              html: "Actuals are calculated using property statuses.<br>Add forecasts for next month."
+            },
+            href: "key-performance-indicators.html",
+            status: {
+              text: "Completed"
+            }
+          },
+          {
+            title: {
+              text: "Declare spending figures"
+            },
+            href: "spending-figures.html",
+            status: {
+              text: "Completed"
+            }
+          },
+          {
+            title: {
+              text: "Provide project updates"
+            },
+            href: "project-updates.html",
+            status: {
+              text: "Completed"
+            }
+          }
+        ]
+      }) }}
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Submit report",
+          href: "confirm-report-submission"
+        }) }}
+
+        {{ govukButton({
+          text: "Save draft report",
+          href: "#",
+          classes: "govuk-button--secondary"
+        }) }}
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

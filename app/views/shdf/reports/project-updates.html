@@ -1,0 +1,129 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Project updates – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Provide project updates
+      </h1>
+
+      <form class="form" action="generate-report-5" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "rag",
+          value: data['rag'],
+          fieldset: {
+            legend: {
+              text: "How would you rate progress on the project?"
+            }
+          },
+          items: [
+            {
+              value: "red",
+              text: "Red"
+            },
+            {
+              value: "amber",
+              text: "Amber"
+            },
+            {
+              value: "green",
+              text: "Green"
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "Phase confidence rating?"
+          },
+          classes: "govuk-input--width-3",
+          id: "phaseConfidence",
+          name: "phase-confidence",
+          value: data['phase-confidence']
+        }) }}
+
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          name: "progressUpdate",
+          id: "progress-update",
+          value: data['progressUpdate'],
+          label: {
+            text: "Provide any additional information about progress on the project"
+          },
+          hint: {
+            text: "For example, you could explain why you have choosen red, amber or green above."
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "nextMonth",
+          id: "next-month",
+          value: data['nextMonth'],
+          label: {
+            text: "What do you have planned for next month?"
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "lessonsLearnt",
+          id: "lessons-learnt",
+          value: data['lessonsLearnt'],
+          label: {
+            text: "Share any helpful learnings about about running the project (optional)"
+          }
+        }) }}
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
+          {{ govukRadios({
+            name: "haveYouCompletedProjectUpdate",
+            value: data['haveYouCompletedProjectUpdate'],
+            fieldset: {
+              legend: {
+                text: "Have you completed this section?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes, I’ve completed this section"
+              },
+              {
+                value: "no",
+                text: "No, I’ll come back to it later"
+              }
+            ]
+          }) }}
+  
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

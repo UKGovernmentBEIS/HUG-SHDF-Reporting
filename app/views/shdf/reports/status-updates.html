@@ -1,0 +1,66 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Update statuses – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class='form' action='generate-report-2.html' method='post'>
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "haveYouCompletedStatuses",
+          value: data['haveYouCompletedStatuses'],
+          fieldset: {
+            legend: {
+              text: "Are all your property statuses up-to-date?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: "<p>KPIs in the monthly report will be calculated using property statuses.</p>
+            <p>Check and edit property statuses on
+            <a href='/hug/properties/list' class='govuk-link' rel='noreferrer noopener' target='_blank'>Properties on your register (opens in a new tab)</a>.</p>"
+          },
+          items: [
+            {
+              value: "up-to-date",
+              text: "Yes, all property statuses are up-to-date"
+            },
+            {
+              value: "update-later",
+              text: "No, I'll update them later",
+              hint: {
+                text: "It will not be possible to complete the KPIs section until property statuses are updated."
+              }
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Continue",
+          href: "generate-report-2.html"
+        }) }}
+
+    </form>
+
+    
+
+    </div>
+  </div>
+
+{% endblock %}

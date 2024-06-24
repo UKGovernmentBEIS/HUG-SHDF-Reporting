@@ -1,0 +1,199 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  List of monthly reports – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {{ govukTable({
+        caption: "Monthly reports",
+        captionClasses: "govuk-table__caption--l",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Month"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: [
+            [
+            {
+              text: "Aug 2024"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--light-blue'>
+                To do
+              </strong>"
+            },
+            {
+              html: "<a href='generate-report.html' class='govuk-link'>Generate</a>"
+            }
+          ],
+          [
+            {
+              text: "July 2024"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--green'>
+                Submitted
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              text: "June 2024"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--purple'>
+                Draft
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "May 2024"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--green'>
+                Submitted
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              text: "April 2024"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--red'>
+                Overdue
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+              {
+                text: "March 2024"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>
+                  Submitted
+                </strong>"
+              },
+              {
+                html: "<a href='#' class='govuk-link'>View</a>"
+              }
+            ],
+            [
+              {
+                text: "February 2024"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>
+                  Submitted
+                </strong>"
+              },
+              {
+                html: "<a href='#' class='govuk-link'>View</a>"
+              }
+            ],
+            [
+              {
+                text: "January 2024"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>
+                  Submitted
+                </strong>"
+              },
+              {
+                html: "<a href='#' class='govuk-link'>View</a>"
+              }
+            ],
+            [
+              {
+                text: "December 2023"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>
+                  Submitted
+                </strong>"
+              },
+              {
+                html: "<a href='#' class='govuk-link'>View</a>"
+              }
+            ],
+            [
+              {
+                text: "November 2023"
+              },
+              {
+                html: "<strong class='govuk-tag govuk-tag--green'>
+                  Submitted
+                </strong>"
+              },
+              {
+                html: "<a href='#' class='govuk-link'>View</a>"
+              }
+            ]
+          ]
+        }) }}
+
+        {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+      {{ govukPagination({
+        previous: {
+          href: "#"
+        },
+        next: {
+          href: "#"
+        },
+        items: [
+          {
+            number: 1,
+            current: true,
+            href: "#"
+          },
+          {
+            number: 2,
+            href: "#"
+          },
+          {
+            number: 3,
+            href: "#"
+          }
+        ]
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

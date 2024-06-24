@@ -1,0 +1,160 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Trustmark lodgements – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Properties with new lodgements in TrustMark</h1>
+
+      <p class="govuk-body">Update the property statuses if required.</p>
+
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {{ govukTable({
+        firstCellIsHeader: true,
+        classes: "govuk-table--small-text-until-tablet",
+        head: [
+          {
+            text: "First line address"
+          },
+          {
+            text: "Postcode"
+          },
+          {
+            text: "Proposed measures",
+            format: "numeric"
+          },
+          {
+            text: "Lodgements",
+            format: "numeric"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "22 Baker St"
+            },
+            {
+              text: "W1A 1AA"
+            },
+            {
+              text: "3",
+              format: "numeric"
+            },
+            {
+              text: "3",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--light-blue'>
+                Assessed
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a> | <a href='#' class='govuk-link'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "7 Oakwood Terrace"
+            },
+            {
+              text: "M15 6HZ"
+            },
+            {
+              text: "3",
+              format: "numeric"
+            },
+            {
+              text: "4",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--purple'>
+                Tenants engaged
+              </strong>"
+            },
+            {
+              html: "<a href='property-update/view' class='govuk-link'>View</a> | <a href='property-update/view' class='govuk-link'>Edit</a>"
+            }
+          ],
+          [
+            {
+              text: "Flat 3, 45 Rose Terrace"
+            },
+            {
+              text: "B3 4AD"
+            },
+            {
+              text: "0",
+              format: "numeric"
+            },
+            {
+              text: "3",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--blue'>
+                Started
+              </strong>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a> | <a href='#' class='govuk-link'>Edit</a>"
+            }
+          ]
+        ]
+      }) }}
+
+      <form class='form' action='generate-report-1' method='post'>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "haveYouCompletedTrustMarkUpdates",
+          value: data['haveYouCompletedTrustMarkUpdates'],
+          fieldset: {
+            legend: {
+              text: "Have you completed this section?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, I’ve completed this section"
+            },
+            {
+              value: "no",
+              text: "No, I’ll come back to it later"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,472 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  View property – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        7 Oakwood Terrace, M15 6HZ
+      </h1>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Status"
+          }
+        },
+        rows: [
+          {
+            key: {
+              html: "<strong class='govuk-tag govuk-tag--green'>
+                Completed
+              </strong>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "change/status.html",
+                  text: "Change",
+                  visuallyHiddenText: "status"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Proposed measures"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Electric storage heating"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Mark as withdrawn",
+                  visuallyHiddenText: "electric storage heating"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Underfloor insulation: Solid floor"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Mark as withdrawn",
+                  visuallyHiddenText: "underfloor insulation: Solid floor"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Loft insulation"
+            },
+            value: {
+              html: "<p>Occupant declined</p><strong class='govuk-tag govuk-tag--red'>Withdrawn</strong>"
+            }
+          }
+        ]
+      }) }}
+
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {{ govukTable({
+        caption: "Measures lodged with TrustMark",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: true,
+        classes: "govuk-table--small-text-until-tablet",
+        head: [
+          {
+            text: "Measure type"
+          },
+          {
+            text: "Unique measure reference"
+          },
+          {
+            text: "Project reference"
+          },
+          {
+            text: "MCS Reference"
+          },
+          {
+            text: "Date completed"
+          },
+          {
+            text: "Installer"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Electric storage heating"
+            },
+            {
+              text: "30By53EvbB4"
+            },
+            {
+              text: "xxxxxx"
+            },
+            {
+              text: "xxxxxx"
+            },
+            {
+              text: "27 Jun 24"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>RetrofitWorks</a>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>Remove</a>"
+            }
+          ],
+          [
+            {
+              text: "Underfloor insulation: Solid floor"
+            },
+            {
+              text: "30By53EvbB4"
+            },
+            {
+              text: "xxxxxx"
+            },
+            {
+              text: "xxxxxx"
+            },
+            {
+              text: "27 Jun 24"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>RetrofitWorks</a>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>Remove</a>"
+            }
+          ],
+          [
+            {
+              text: "Internal Wall Insulation"
+            },
+            {
+              text: "30By53EvbB4"
+            },
+            {
+              text: "xxxxxx"
+            },
+            {
+              text: "xxxxxx"
+            },
+            {
+              text: "27 Jun 24"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>RetrofitWorks</a>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>Remove</a>"
+            }
+          ],
+          [
+            {
+              text: "Double Glazing"
+            },
+            {
+              text: "30By53EvbB4"
+            },
+            {
+              text: "xxxxxx"
+            },
+            {
+              text: "xxxxxx"
+            },
+            {
+              text: "27 Jun 24"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>RetrofitWorks</a>"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>Remove</a>"
+            }
+          ]
+        ]
+      }) }}
+      
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Property details"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Batch number"
+            },
+            value: {
+              html: "589034"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "batch number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Property type"
+            },
+            value: {
+              html: "Semi-detached"
+            },
+            actions: {
+              items: [
+                {
+                  href: "change/type.html",
+                  text: "Change",
+                  visuallyHiddenText: "property type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "On or off gas grid"
+            },
+            value: {
+              html: "On gas grid"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "gas grid"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Pre-installation heating fuel source"
+            },
+            value: {
+              html: "Coal"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "heating fuel source"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Standard Assessment Procedure (SAP)"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Pre-installation SAP score"
+            },
+            value: {
+              html: "12"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "pre-installation SAP score"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Pre-installation SAP certificate number"
+            },
+            value: {
+              html: "1234-5678-9012-3456-7890"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "pre-installation SAP certificate number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Post-installation SAP score"
+            },
+            value: {
+              html: '<a href="#" class="govuk-link">Enter post-installation information</a>'
+            }
+          },
+          {
+            key: {
+              text: "Post-installation SAP certificate number"
+            },
+            value: {
+              html: '<a href="#" class="govuk-link">Enter post-installation information</a>'
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Occupant and landlord details"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Occupant name"
+            },
+            value: {
+              html: "Eleanor Worthington"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "occupant name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Occupant email"
+            },
+            value: {
+              html: "e.worthington@example.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "occupant email"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Occupant contact number"
+            },
+            value: {
+              html: "07890 987654"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "occupant contact number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Landlord email"
+            },
+            value: {
+              html: "landlord2@example.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "landlord email"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Landlord contact number"
+            },
+            value: {
+              html: "07655 88033"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "landlord contact number"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <a role="button" draggable="false" class="govuk-button" href="/hug/reports/trustmark-updates-changed">Done</a>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-inset-text">
+        <p class="govuk-body"><strong>Full address:</strong> 7 Oakwood Terrace, Greenfield, M15 6HZ
+        <br><a href="#" class="govuk-link">Change</a>
+        </p>
+        <p class="govuk-body-s"><strong>UPRN:</strong> 123456789</p>
+        <p class="govuk-body-s"><strong>Date added:</strong> 19 June 2024</p>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

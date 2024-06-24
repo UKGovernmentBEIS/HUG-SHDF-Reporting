@@ -1,0 +1,206 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Spending figures – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Declare spending figures
+      </h1>
+
+      <form class="form" action="generate-report-4" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Co-funding capital spend</h2>
+
+          {{ govukInput({
+            label: {
+              text: "Actual co-funding capital spend"
+            },
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "cofundActualSpend",
+            name: "cofund-actual-spend",
+            spellcheck: false,
+            value: data['cofund-actual-spend']
+          }) }}
+          
+          {{ govukInput({
+            label: {
+              text: "Forecast co-funding capital spend for August 2024"
+            },
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "cofundForecastSpend",
+            name: "cofund-forecast-spend",
+            spellcheck: false,
+            value: data['cofund-forecast-spend']
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Combined capital spend</h2>
+
+          {{ govukInput({
+            label: {
+              text: "Actual combined capital spend"
+            },
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "combinedActualSpend",
+            name: "combined-actual-spend",
+            spellcheck: false,
+            value: data['combined-actual-spend']
+          }) }}
+          
+          {{ govukInput({
+            label: {
+              text: "Forecast combined capital spend for August 2024"
+            },
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "combinedForecastSpend",
+            name: "combined-forecast-spend",
+            spellcheck: false,
+            value: data['combined-forecast-spend']
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">SHDF Grant claim received</h2>
+
+          {{ govukInput({
+            label: {
+              text: "Actual grant claim received"
+            },
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "grantClaimReceived",
+            name: "grant-claim-received",
+            spellcheck: false,
+            value: data['grant-claim-received']
+          }) }}
+          
+          {{ govukInput({
+            label: {
+              text: "Forecast grant claim received for August 2024"
+            },
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "forecastGrantClaimReceived",
+            name: "forecast-grant-claim-received",
+            spellcheck: false,
+            value: data['forecast-grant-claim-received']
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Cumulative SHDF Grant claim</h2>
+
+          {{ govukInput({
+            label: {
+              text: "Actual cumulative grant claim"
+            },
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "cumulativeGrantClaim",
+            name: "cumulative-grant-claim",
+            spellcheck: false,
+            value: data['cumulative-grant-claim']
+          }) }}
+          
+          {{ govukInput({
+            label: {
+              text: "Forecast cumulative grant claim for August 2024"
+            },
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "forecastCumulativeGrantClaim",
+            name: "forecast-cumulative-grant-claim",
+            spellcheck: false,
+            value: data['forecast-cumulative-grant-claim']
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">A&A spend</h2>
+
+          {{ govukInput({
+            label: {
+              text: "A&A spend"
+            },
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "aandASpend",
+            name: "a-and-a-spend",
+            spellcheck: false,
+            value: data['a-and-a-spend']
+          }) }}
+        </div>
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
+          {{ govukRadios({
+            name: "haveYouCompletedSpendingFigures",
+            value: data['haveYouCompletedSpendingFigures'],
+            fieldset: {
+              legend: {
+                text: "Have you completed this section?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes, I’ve completed this section"
+              },
+              {
+                value: "no",
+                text: "No, I’ll come back to it later"
+              }
+            ]
+          }) }}
+  
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

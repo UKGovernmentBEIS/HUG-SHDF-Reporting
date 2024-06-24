@@ -1,0 +1,175 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Key performance indicators – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Report Key Performance Indicators (KPIs)
+      </h1>
+
+      <p class="govuk-body">Actual figures are calculated using property statuses. If the actual figures appear to be incorrect, please check and update property statuses first.</p>
+
+      <form class="form" action="generate-report-3" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Homes approached</h2>
+          {{ govukInput({
+            label: {
+              text: "Actual homes approached (optional)"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "actualApproached",
+            name: "actual-approached",
+            value: data['actual-approached']
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Homes approached forecast for August 2024 (optional)"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "forecastApproached",
+            name: "forecast-approached",
+            value: data['forecast-approached']
+          }) }}
+        </div>
+        
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Homes assessed</h2>
+          <p><strong>Actual:</strong> 1</p>
+
+          {{ govukInput({
+            label: {
+              text: "Homes assessed forecast for August 2024"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "assessed",
+            name: "assessed",
+            value: data['assessed']
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Homes with tenants engaged</h2>
+          <p><strong>Actual:</strong> 1</p>
+
+          {{ govukInput({
+            label: {
+              text: "Homes with tenants engaged forecast for August 2024"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "engaged",
+            name: "engaged",
+            value: data['engaged']
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Homes started installation</h2>
+          <p><strong>Actual:</strong> 5</p>
+
+          {{ govukInput({
+            label: {
+              text: "Homes started installation forecast for August 2024"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "started",
+            name: "started",
+            value: data['started']
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Homes with all installations completed</h2>
+          <p><strong>Actual:</strong> 1</p>
+
+          {{ govukInput({
+            label: {
+              text: "Homes with all installations completed forecast for August 2024"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "installed",
+            name: "installed",
+            value: data['installed']
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Homes completed</h2>
+          <p><strong>Actual:</strong> 4</p>
+
+          {{ govukInput({
+            label: {
+              text: "Homes completed forecast for August 2024"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "completed",
+            name: "completed",
+            value: data['completed']
+          }) }}
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-s">Homes to EPC C</h2>
+          <p><strong>Actual:</strong> 1</p>
+
+          {{ govukInput({
+            label: {
+              text: "Homes to EPC C forecast for August 2024"
+            },
+            classes: "govuk-!-width-one-third",
+            id: "epcC",
+            name: "epcC",
+            value: data['epcC']
+          }) }}
+        </div>
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
+          {{ govukRadios({
+            name: "haveYouCompletedKPIs",
+            value: data['haveYouCompletedKPIs'],
+            fieldset: {
+              legend: {
+                text: "Have you completed the KPIs?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes, I’ve completed the KPIs"
+              },
+              {
+                value: "no",
+                text: "No, I’ll come back to them later"
+              }
+            ]
+          }) }}
+  
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
