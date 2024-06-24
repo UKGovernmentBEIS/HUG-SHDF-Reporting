@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Project updates
+        Provide project updates
       </h1>
 
       <form class="form" action="generate-report-5" method="post">
@@ -26,6 +26,7 @@
 
         {{ govukRadios({
           name: "rag",
+          value: data['rag'],
           fieldset: {
             legend: {
               text: "How would you rate progress on the project?"
@@ -52,6 +53,7 @@
         {{ govukTextarea({
           name: "progressUpdate",
           id: "progress-update",
+          value: data['progressUpdate'],
           label: {
             text: "Provide any additional information about progress on the project"
           },
@@ -63,6 +65,7 @@
         {{ govukTextarea({
           name: "nextMonth",
           id: "next-month",
+          value: data['nextMonth'],
           label: {
             text: "What do you have planned for next month?"
           }
@@ -71,14 +74,40 @@
         {{ govukTextarea({
           name: "lessonsLearnt",
           id: "lessons-learnt",
+          value: data['lessonsLearnt'],
           label: {
             text: "Share any helpful learnings about about running the project (optional)"
           }
         }) }}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
+          {{ govukRadios({
+            name: "haveYouCompletedProjectUpdate",
+            value: data['haveYouCompletedProjectUpdate'],
+            fieldset: {
+              legend: {
+                text: "Have you completed this section?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes, I’ve completed this section"
+              },
+              {
+                value: "no",
+                text: "No, I’ll come back to it later"
+              }
+            ]
+          }) }}
+  
+          {{ govukButton({
+            text: "Continue"
+          }) }}
 
       </form>
 

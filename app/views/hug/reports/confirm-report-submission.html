@@ -1,0 +1,42 @@
+{% extends "layouts/hug.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Report submitted",
+        html: "Your report for July 2024 has been recorded"
+      }) }}
+
+      <p>
+        We have sent you a confirmation email.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        Your report will be reviewed by you Single Point of Contact.
+      </p>
+
+      <p>
+        They will contact you either to discuss your report further.
+      </p>
+      <p>
+        <a href="list-updated">
+          Back to Monthly reports
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Key performance indicators
+        Report Key Performance Indicators (KPIs)
       </h1>
 
       <p class="govuk-body">Actual figures are calculated using property statuses. If the actual figures appear to be incorrect, please check and update property statuses first.</p>
@@ -35,7 +35,8 @@
             },
             classes: "govuk-!-width-one-third",
             id: "assessed",
-            name: "assessed"
+            name: "assessed",
+            value: data['assessed']
           }) }}
         </div>
 
@@ -49,7 +50,8 @@
             },
             classes: "govuk-!-width-one-third",
             id: "started",
-            name: "started"
+            name: "started",
+            value: data['started']
           }) }}
         </div>
 
@@ -63,7 +65,8 @@
             },
             classes: "govuk-!-width-one-third",
             id: "installed",
-            name: "installed"
+            name: "installed",
+            value: data['installed']
           }) }}
         </div>
 
@@ -77,7 +80,8 @@
             },
             classes: "govuk-!-width-one-third",
             id: "completed",
-            name: "completed"
+            name: "completed",
+            value: data['completed']
           }) }}
         </div>
 
@@ -91,13 +95,39 @@
             },
             classes: "govuk-!-width-one-third",
             id: "epcC",
-            name: "epcC"
+            name: "epcC",
+            value: data['epcC']
           }) }}
         </div>
 
-        {{ govukButton({
-          text: "KPIs complete"
-        }) }}
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
+          {{ govukRadios({
+            name: "haveYouCompletedKPIs",
+            value: data['haveYouCompletedKPIs'],
+            fieldset: {
+              legend: {
+                text: "Have you completed the KPIs?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes, I’ve completed the KPIs"
+              },
+              {
+                value: "no",
+                text: "No, I’ll come back to them later"
+              }
+            ]
+          }) }}
+  
+          {{ govukButton({
+            text: "Continue"
+          }) }}
 
       </form>
 

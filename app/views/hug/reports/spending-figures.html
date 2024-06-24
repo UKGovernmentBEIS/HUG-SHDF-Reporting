@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Spending figures
+        Declare spending figures
       </h1>
 
       <form class="form" action="generate-report-4" method="post">
@@ -30,24 +30,59 @@
             label: {
               text: "Actual grant capital spend"
             },
+            prefix: {
+              text: "£"
+            },
             classes: "govuk-!-width-one-third",
             id: "actualSpend",
-            name: "actual-spend"
+            name: "actual-spend",
+            spellcheck: false,
+            value: data['actual-spend']
           }) }}
           
           {{ govukInput({
             label: {
               text: "Forecast grant capital spend for August 2024"
             },
+            prefix: {
+              text: "£"
+            },
             classes: "govuk-!-width-one-third",
             id: "forecastSpend",
-            name: "forecast-spend"
+            name: "forecast-spend",
+            spellcheck: false,
+            value: data['forecast-spend']
           }) }}
         </div>
 
-        {{ govukButton({
-          text: "Spending figures complete"
-        }) }}
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
+          {{ govukRadios({
+            name: "haveYouCompletedSpendingFigures",
+            value: data['haveYouCompletedSpendingFigures'],
+            fieldset: {
+              legend: {
+                text: "Have you completed this section?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes, I’ve completed this section"
+              },
+              {
+                value: "no",
+                text: "No, I’ll come back to it later"
+              }
+            ]
+          }) }}
+  
+          {{ govukButton({
+            text: "Continue"
+          }) }}
 
       </form>
 

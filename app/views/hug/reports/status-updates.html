@@ -16,36 +16,49 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Search for a property to update the status
-      </h1>
+      <form class='form' action='generate-report-2.html' method='post'>
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-      <form class='form' action='/path/of/next/page' method='post'>
-        <fieldset class='govuk-fieldset govuk-grid-row'>
-          <div class='govuk-form-group'>
-            <label class='govuk-label' for='address-first-line'>
-              First line of the address
-            </label>
-            <input class='govuk-input govuk-input--width-20' id='address-first-line' name='address-first-line' type='text'>
-          </div>
-          <div class='govuk-form-group'>
-            <label class='govuk-label' for='address-first-line'>
-              Postcode
-            </label>
-            <input class='govuk-input govuk-input--width-10' id='address-first-line' name='address-first-line' type='text'>
-          </div>
-        </fieldset>
-      <button type='submit' class='govuk-button govuk-button--secondary' data-module='govuk-button'>
-        Find
-      </button>
-    </form>
+        {{ govukRadios({
+          name: "haveYouCompletedStatuses",
+          value: data['haveYouCompletedStatuses'],
+          fieldset: {
+            legend: {
+              text: "Are all your property statuses up-to-date?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: "<p>KPIs in the monthly report will be calculated using property statuses.</p>
+            <p>Check and edit property statuses on
+            <a href='/hug/properties/list' class='govuk-link' rel='noreferrer noopener' target='_blank'>Properties on your register (opens in a new tab)</a>.</p>"
+          },
+          items: [
+            {
+              value: "up-to-date",
+              text: "Yes, all property statuses are up-to-date"
+            },
+            {
+              value: "update-later",
+              text: "No, I'll update them later",
+              hint: {
+                text: "It will not be possible to complete the KPIs section until property statuses are updated."
+              }
+            }
+          ]
+        }) }}
 
-    {% from "govuk/components/button/macro.njk" import govukButton %}
+        {% from "govuk/components/button/macro.njk" import govukButton %}
 
         {{ govukButton({
-          text: "Status updates complete",
+          text: "Continue",
           href: "generate-report-2.html"
         }) }}
+
+    </form>
+
+    
 
     </div>
   </div>
