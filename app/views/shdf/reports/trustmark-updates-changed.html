@@ -47,6 +47,30 @@
           }
         ],
         rows: [
+        [
+            {
+              text: "7 Oakwood Terrace"
+            },
+            {
+              text: "M15 6HZ"
+            },
+            {
+              text: "3",
+              format: "numeric"
+            },
+            {
+              text: "4",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--green'>
+                Completed
+              </strong>"
+            },
+            {
+              html: "<a href='property-update/view-updated' class='govuk-link'>View</a> | <a href='#' class='govuk-link'>Edit</a>"
+            }
+          ],
           [
             {
               text: "22 Baker St"
@@ -69,30 +93,6 @@
             },
             {
               html: "<a href='#' class='govuk-link'>View</a> | <a href='#' class='govuk-link'>Edit</a>"
-            }
-          ],
-          [
-            {
-              text: "7 Oakwood Terrace"
-            },
-            {
-              text: "M15 6HZ"
-            },
-            {
-              text: "3",
-              format: "numeric"
-            },
-            {
-              text: "4",
-              format: "numeric"
-            },
-            {
-              html: "<strong class='govuk-tag govuk-tag--green'>
-                Completed
-              </strong>"
-            },
-            {
-              html: "<a href='property-update/view-updated' class='govuk-link'>View</a> | <a href='#' class='govuk-link'>Edit</a>"
             }
           ],
           [
@@ -131,7 +131,7 @@
           value: data['haveYouCompletedTrustMarkUpdatesY'],
           fieldset: {
             legend: {
-              text: "Have you completed this section?",
+              text: "Have you completed updates from TrustMark?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }

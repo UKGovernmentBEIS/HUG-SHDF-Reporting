@@ -1,0 +1,52 @@
+{% extends "layouts/shdf.html" %}
+
+{% block pageTitle %}
+  Import from TrustMark – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Import new lodgements from TrustMark
+      </h1>
+
+      <h2 class="govuk-heading-m">How it works</h2>
+
+      <p class="govuk-body">
+        Lodgements that have been made in TrustMark over the past month by your installers will be added to this platform.
+      </p>
+        
+      <p class="govuk-body">
+        The platform uses TrustMark's Application Programming Interface (API) to gather the lodgement data efficiently and securely.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        New lodgements will be listed on the relevant property in your register.</p>
+      <p class="govuk-body">
+        You will then need to update the properties' statuses to 'Complete' if there are no further measures to be installed at the property.
+      </p>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Start TrustMark import",
+        href: "trustmark-updates",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
