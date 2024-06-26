@@ -1,7 +1,7 @@
-{% extends "layouts/shdf.html" %}
+{% extends "layouts/hug.html" %}
 
 {% block pageTitle %}
-  SHDF Properties – {{ serviceName }} – GOV.UK Prototype Kit
+  HUG Properties – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -65,6 +65,10 @@
             text: "Date added"
           },
           {
+            text: "Batch ID",
+            format: "numeric"
+          },
+          {
             text: "Status"
           },
           {
@@ -73,18 +77,22 @@
         ],
         rows: [
           [
-          {
-            text: "22 Baker St"
-          },
-          {
-            text: "W1A 1AA"
-          },
-          {
-            text: "19 June 2024"
-          },
             {
-              html: "<strong class='govuk-tag govuk-tag--light-blue'>
-                Assessed
+              text: "22 Baker St"
+            },
+            {
+              text: "W1A 1AA"
+            },
+            {
+              text: "19 June 2024"
+            },
+            {
+              text: "135476",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--purple'>
+                Validated
               </strong>"
             },
             {
@@ -92,18 +100,22 @@
             }
           ],
           [
-          {
-            text: "7 0akwood Terrace"
-          },
-          {
-            text: "M15 6HZ"
-          },
-          {
-            text: "19 June 2024"
-          },
             {
-              html: "<strong class='govuk-tag govuk-tag--purple'>
-                Tenant engaged
+              text: "7 0akwood Terrace"
+            },
+            {
+              text: "M15 6HZ"
+            },
+            {
+              text: "19 June 2024"
+            },
+            {
+              text: "589034",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--green'>
+                Completed
               </strong>"
             },
             {
@@ -111,15 +123,19 @@
             }
           ],
           [
-          {
-            text: "Flat 3, 45 Rose Lane"
-          },
-          {
-            text: "B3 4AD"
-          },
-          {
-            text: "19 June 2024"
-          },
+            {
+              text: "Flat 3, 45 Rose Lane"
+            },
+            {
+              text: "B3 4AD"
+            },
+            {
+              text: "19 June 2024"
+            },
+            {
+              text: "642197",
+              format: "numeric"
+            },
             {
               html: "<strong class='govuk-tag govuk-tag--blue'>
                 Started
@@ -140,8 +156,12 @@
               text: "19 June 2024"
             },
             {
-              html: "<strong class='govuk-tag govuk-tag--green'><!-- colour -->
-                Install complete
+              text: "466457",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--turquoise'>
+                Treated
               </strong>"
             },
             {
@@ -159,8 +179,12 @@
               text: "19 June 2024"
             },
             {
-              html: "<strong class='govuk-tag govuk-tag--turquoise'>
-                Handed over
+              text: "465156",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--green'>
+                Completed
               </strong>"
             },
             {
@@ -176,6 +200,10 @@
             },
             {
               text: "19 June 2024"
+            },
+            {
+              text: "195784",
+              format: "numeric"
             },
             {
               html: "<strong class='govuk-tag govuk-tag--red'>
@@ -197,15 +225,18 @@
               text: "19 June 2024"
             },
             {
-              html: "<strong class='govuk-tag govuk-tag--light-blue'>
-                Assessed
+              text: "998751",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--blue'>
+                Started
               </strong>"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
             }
           ],
-
           [
             {
               text: "3A Maple Court"
@@ -217,15 +248,18 @@
               text: "19 June 2024"
             },
             {
-              html: "<strong class='govuk-tag govuk-tag--light-blue'>
-                Assessed
+              text: "165131",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--blue'>
+                Started
               </strong>"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
             }
           ],
-
           [
             {
               text: "56 Elm Avenue"
@@ -237,15 +271,18 @@
               text: "19 June 2024"
             },
             {
-              html: "<strong class='govuk-tag govuk-tag--light-blue'>
-                Assessed
+              text: "278494",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--blue'>
+                Started
               </strong>"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
             }
           ],
-
           [
             {
               text: "Apartment 5, 88 Lavender Walk"
@@ -257,8 +294,12 @@
               text: "19 June 2024"
             },
             {
-              html: "<strong class='govuk-tag govuk-tag--light-blue'>
-                Assessed
+              text: "465877",
+              format: "numeric"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--blue'>
+                Started
               </strong>"
             },
             {

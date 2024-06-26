@@ -1,0 +1,153 @@
+{% extends "layouts/hug.html" %}
+
+{% block pageTitle %}
+  Remove measure – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Remove measure from property
+      </h1>
+
+      <form class="form" action="view-measure-removed" method="post">
+
+        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+        {{ govukSummaryList({
+          classes: "govuk-summary-list--no-border",
+          rows: [
+            {
+              key: {
+                text: "Measure type"
+              },
+              value: {
+                html: "Loft insulation"
+              }
+            },
+            {
+              key: {
+                text: "Unique measure reference"
+              },
+              value: {
+                html: "30By53EvbB4"
+              }
+            },
+            {
+              key: {
+                text: "Project reference"
+              },
+              value: {
+                html: "xxxxxx"
+              }
+            },
+            {
+              key: {
+                text: "MCS reference"
+              },
+              value: {
+                html: "xxxxxx"
+              }
+            },
+            {
+              key: {
+                text: "Date completed"
+              },
+              value: {
+                html: "27 Jun 24"
+              }
+            },
+            {
+              key: {
+                text: "Installer"
+              },
+              value: {
+                html: "RetrofitWorks"
+              }
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {% set otherHtml %}
+        {{ govukInput({
+          id: "other-removal-reason",
+          name: "otherRemovalReason",
+          type: "input",
+          label: {
+            text: "Other"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "contact",
+          fieldset: {
+            legend: {
+              text: "Why remove this measure from the property?"
+            }
+          },
+          items: [
+            {
+              value: "notInScheme",
+              text: "The measure was not installed at the property under this scheme"
+            },
+            {
+              value: "installerDisagrees",
+              text: "Our installer or contractor states that this measure was not installed at the property."
+            },
+            {
+              value: "installerDisagrees",
+              text: "Our inspection or our contractor's inspection indicates that the measure has not been installed the property."
+            },
+            {
+              value: "internalRecords",
+              text: "Our internal records show that this measure was not installed at the property."
+            },
+            {
+              value: "notPossible",
+              text: "It is not possible for this measure to be installed at this property."
+            },
+            {
+              value: "other",
+              text: "Other",
+              conditional: {
+                html: otherHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Remove loft insulation"
+        }) }}
+
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-inset-text">
+        <p class="govuk-body"><strong>Full address:</strong> 7 Oakwood Terrace, Greenfield, M15 6HZ
+        <br><a href="#" class="govuk-link">Change</a>
+        </p>
+        <p class="govuk-body-s"><strong>UPRN:</strong> 123456789</p>
+        <p class="govuk-body-s"><strong>Date added:</strong> 19 June 2024</p>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}
